@@ -54,6 +54,14 @@ section.has-dark-background {
     }
 }
 
+body:after {
+  content: url(/images/logo.png);
+  transform: scale(.1);
+  position: fixed;
+  bottom: -17em;
+  left: -54em;
+}
+
 
 // Theme template ------------------------------
 @import "../template/theme";

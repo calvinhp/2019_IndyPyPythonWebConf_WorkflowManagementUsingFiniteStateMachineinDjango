@@ -1,0 +1,6 @@
+digraph {
+    rankdir=LR;
+    nodesep=2;
+    Private -> Published [label=Publish];
+    Published -> Private [label=Retract];
+}

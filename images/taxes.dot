@@ -1,0 +1,11 @@
+digraph {
+    "New Filing" -> Submitted;
+    Submitted -> "Pending Scan" [label="Scan File"];
+    "Pending Scan" -> Rejected;
+    "Pending Scan" -> "Scan Clean";
+    "Scan Clean" -> "Ready for Review"
+    "Ready for Review" -> "Under Review"
+    "Under Review" -> Rejected;
+    Rejected -> Submitted;
+    "Under Review" -> Accepted;
+}

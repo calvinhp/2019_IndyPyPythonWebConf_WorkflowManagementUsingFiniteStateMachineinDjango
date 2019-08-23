@@ -1,0 +1,5 @@
+digraph {
+    rankdir=LR;
+    Pending
+    Processed
+}

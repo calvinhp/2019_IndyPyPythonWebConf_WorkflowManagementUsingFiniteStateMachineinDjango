@@ -1,0 +1,17 @@
+digraph {
+	subgraph cluster_casereport_CaseReport_workflow_state {
+		graph [label="casereport.CaseReport.workflow_state"]
+		"casereport.case_report.workflow_state.author review" [label="author review" shape=circle]
+		"casereport.case_report.workflow_state.live" [label=live shape=circle]
+		"casereport.case_report.workflow_state.draft" [label=draft shape=circle]
+		"casereport.case_report.workflow_state._initial" [label="" shape=point]
+			"casereport.case_report.workflow_state._initial" -> "casereport.case_report.workflow_state.draft"
+		"casereport.case_report.workflow_state.administrative processing" [label="administrative processing" shape=circle]
+			"casereport.case_report.workflow_state.live" -> "casereport.case_report.workflow_state.administrative processing" [label=redact_by_admin]
+			"casereport.case_report.workflow_state.draft" -> "casereport.case_report.workflow_state.administrative processing" [label=submit]
+			"casereport.case_report.workflow_state.administrative processing" -> "casereport.case_report.workflow_state.author review" [label=reject]
+			"casereport.case_report.workflow_state.administrative processing" -> "casereport.case_report.workflow_state.live" [label=publish]
+			"casereport.case_report.workflow_state.live" -> "casereport.case_report.workflow_state.author review" [label=redact_by_author]
+			"casereport.case_report.workflow_state.author review" -> "casereport.case_report.workflow_state.administrative processing" [label=submit]
+	}
+}
